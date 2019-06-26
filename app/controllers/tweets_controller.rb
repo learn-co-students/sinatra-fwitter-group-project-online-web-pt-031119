@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
       redirect to '/login'
     end
   end 
-  
+
   get '/tweets/new' do 
     if logged_in?
       erb :"tweets/new"
@@ -70,7 +70,6 @@ class TweetsController < ApplicationController
   end 
   
   delete '/tweets/:id/delete' do
-    # binding.pry
     if logged_in?
       @tweet = Tweet.find_by_id(params[:id])
       if @tweet.user == current_user
