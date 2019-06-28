@@ -15,5 +15,5 @@ class User < ActiveRecord::Base
 		end
 	end
 	found_obj  #returns the matching object
-	end
+  end
 end

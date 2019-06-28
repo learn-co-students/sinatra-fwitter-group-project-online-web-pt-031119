@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
   	erb :index
   end
 
-  get '/signup/' do
+  get '/signup' do
   	if session[:id] == nil
 		erb :'/users/signup'
 	else
