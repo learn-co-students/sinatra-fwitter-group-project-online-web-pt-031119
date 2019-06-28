@@ -1,0 +1,14 @@
+<% if Helpers.is_logged_in?(session) %>
+	<h1>Welcome, <%=@user.username.capitalize%></h1>
+	<h2>Here is the List of all Tweets:</h1>
+
+	<%User.all.each do |user|%>
+		<h3><%=user.username.capitalize%>:</h3> 
+			<%user.tweets.each do |tweet|%>
+				<p><%=tweet.content%></p><br>
+			<%end%>
+	<%end%>
+
+  <% else %>
+      <h1> You Must Be Logged in to View Tweets </h1>
+  <% end %>

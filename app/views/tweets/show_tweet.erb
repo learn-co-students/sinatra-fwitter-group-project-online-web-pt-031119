@@ -1,0 +1,13 @@
+<% if Helpers.is_logged_in?(session) %>
+	<h1>Welcome,<%=User.current_user.username%></h1>
+	<h2>Here is the Tweet:</h1>
+
+	<p>@tweet.content</p>
+
+	<h3><a href="/tweets/edit">Edit Tweet</a></h3>
+
+	<h3><a href="/tweets/delete">Delete Tweet</a></h3>
+
+  <% else %>
+      <h1> You Must Be Logged in to View Tweets </h1>
+  <% end %>
