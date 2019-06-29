@@ -1,6 +1,6 @@
 <% if Helpers.is_logged_in?(session) %>
-	<h1>Welcome,<%=User.current_user.username%></h1>
-	<h2>Here is the Tweet:</h1>
+	<h1>Welcome, <%=@user.username.capitalize%></h1>
+	<h2>Here is your Tweet:</h1>
 
 	<p>@tweet.content</p>
 
