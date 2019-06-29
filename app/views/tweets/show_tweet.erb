@@ -4,9 +4,10 @@
 
 	<p><%=@tweet.content%></p><br>
 
-	<h3><a href="/tweets/edit">Edit Tweet</a></h3>
+	<h3><a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a></h3>
 
-	<h3><a href="/tweets/delete">Delete Tweet</a></h3>
+	
+	<button onclick="window.location.href = '/tweets/<%=@tweet.id%>/delete';">Delete Tweet</button>
 
   <% else %>
       <h1> You Must Be Logged in to View Tweets </h1>
