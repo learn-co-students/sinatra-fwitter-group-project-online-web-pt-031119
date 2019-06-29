@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :tweets
 
   def slug
-	slug_array = self.name.split(/\s*\W/).keep_if {|v| v=~/\w/} #forms array of individual words that only include word characters (letters, numbers, underscores)
+	slug_array = self.username.split(/\s*\W/).keep_if {|v| v=~/\w/} #forms array of individual words that only include word characters (letters, numbers, underscores)
 	slug_name = slug_array.join("-").downcase #creates a string with '-' in between words
   end	
 
