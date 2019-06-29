@@ -18,8 +18,9 @@ class TweetsController < ApplicationController
 	end
 
 	post '/tweets' do
+		user = Helpers.current_user(session)
 		if params[:content] != ""
-			tweet = Tweet.create(content: params[:content], user_id: Helpers.current_user.id)
+			tweet = Tweet.create(content: params[:content], user_id: user.id)
 			redirect "/tweets/#{tweet.id}"
 		else
 			redirect '/tweets/new'
@@ -36,7 +37,6 @@ class TweetsController < ApplicationController
 
 	get '/tweets/:id' do
 		if Helpers.is_logged_in?(session)
-			binding.pry
 			@user = Helpers.current_user(session)
 			@tweet = Tweet.find_by(id: params[:id])
 			erb :'/tweets/show_tweet'

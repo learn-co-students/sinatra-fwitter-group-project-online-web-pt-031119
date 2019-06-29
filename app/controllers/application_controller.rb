@@ -63,12 +63,5 @@ class ApplicationController < Sinatra::Base
   	end
   end
 
-  get '/tweets' do
-  	if session[:user_id] != nil
-  		@user = Helpers.current_user(session)
-  		erb :'/tweets/tweets'
-  	else
-  		redirect '/login'
-  	end
-  end
+
 end
