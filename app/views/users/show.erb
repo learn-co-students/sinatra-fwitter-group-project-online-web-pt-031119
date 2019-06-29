@@ -1,0 +1,7 @@
+<h1>Welcome, <%=@user.username.capitalize%></h1>
+
+<h3>Here are your tweets:</h3>
+
+<%@user.tweets.each do |tweet|%>
+	<p><%=tweet.content%></p><br>
+<%end%>
