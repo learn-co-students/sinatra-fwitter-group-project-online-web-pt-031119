@@ -7,7 +7,10 @@
 	<h3><a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a></h3>
 
 	
-	<button onclick="window.location.href = '/tweets/<%=@tweet.id%>/delete';">Delete Tweet</button>
+  	<form method="post" action="/tweets/<%=@tweet.id%>/delete">
+	  <input id="hidden" type="hidden" name="_method" value="DELETE">
+	  <input type="submit" value="Delete Tweet">
+  	</form>
 
   <% else %>
       <h1> You Must Be Logged in to View Tweets </h1>
