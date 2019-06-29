@@ -17,11 +17,19 @@ class TweetsController < ApplicationController
         end 
     end 
 
-    post '/tweets' do      # create 
-        @tweet = Tweet.new(params)
-        @tweet.user = current_user
-        @tweet.save
-        redirect to '/tweets'
-    end  
+    post '/tweets' do      # create
+        if params[:content] != "" 
+            @tweet = Tweet.new(params)
+            @tweet.user = current_user
+            @tweet.save
+            redirect to "/tweets/#{@tweet.id}"
+        end
+        redirect to '/tweets/new'  
+    end
+    
+    get '/tweets/:id' do 
+        @tweet = Tweet.find_by_id(params[:id]) 
+        erb :'/tweets/show' 
+    end 
 
 end
