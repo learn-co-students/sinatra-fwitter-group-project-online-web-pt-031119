@@ -54,6 +54,7 @@ describe ApplicationController do
         :password => ""
       }
       post '/signup', params
+      # binding.pry
       expect(last_response.location).to include('/signup')
     end
 
@@ -66,6 +67,7 @@ describe ApplicationController do
       }
       post '/signup', params
       get '/signup'
+      # binding.pry
       expect(last_response.location).to include('/tweets')
     end
   end
