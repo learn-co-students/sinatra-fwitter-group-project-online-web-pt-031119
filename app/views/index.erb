@@ -1,4 +1,5 @@
 <% if logged_in? %>
+    <h1>"Welcome to Fwitter"</h1>
     <a href="/tweets/new">Create Tweet</a>
     <a href="/logout">Logout</a>
     <p>Welcome, <%= current_user.username %>
