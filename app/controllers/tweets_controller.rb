@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
       @tweets = Tweet.all
       erb :'tweets/tweets'
     else
-    redirect "/login"
+      redirect "/login"
     end
   end
 
@@ -58,7 +58,7 @@ class TweetsController < ApplicationController
   patch '/tweets/:id' do
     if logged_in?
       @tweet = Tweet.find_by_id(params[:id])
-      if params[:content] !=""
+      if params[:content] != ""
         @tweet.update(content: params[:content])
         erb :"tweets/show_tweet"
       else
